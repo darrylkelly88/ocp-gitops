@@ -4,7 +4,7 @@ metadata:
   name: web-terminal
   namespace: openshift-operators
 spec:
-  channel: stable # Use the desired channel (check the OperatorHub for options)
+  channel: fast # Use the desired channel (check the OperatorHub for options)
   installPlanApproval: Automatic
   name: web-terminal
   source: redhat-operators # Source catalog

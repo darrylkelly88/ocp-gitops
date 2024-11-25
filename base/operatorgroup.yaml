@@ -4,5 +4,3 @@ metadata:
   name: global-operators
   namespace: openshift-operators
 spec:
-  targetNamespaces:
-  - ""

@@ -3,9 +3,12 @@ kind: Subscription
 metadata:
   name: web-terminal
   namespace: openshift-operators
+  labels:
+    app.kubernetes.io/instance: web-terminal-operator
+    operators.coreos.com/web-terminal.openshift-operators: ''
 spec:
-  channel: fast # Use the desired channel (check the OperatorHub for options)
+  channel: fast
   installPlanApproval: Automatic
   name: web-terminal
-  source: redhat-operators # Source catalog
+  source: redhat-operators
   sourceNamespace: openshift-marketplace

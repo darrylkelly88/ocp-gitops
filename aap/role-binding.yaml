@@ -3,6 +3,8 @@ kind: RoleBinding
 metadata:
   name: argocd-manager-binding
   namespace: aap
+  annotations:
+  argocd.argoproj.io/hook: PreSync  # Ensures this runs before dependent resources
 subjects:
   - kind: ServiceAccount
     name: openshift-gitops-argocd-application-controller

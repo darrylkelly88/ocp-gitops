@@ -3,6 +3,8 @@ kind: Role
 metadata:
   name: argocd-manager
   namespace: aap
+  annotations:
+    argocd.argoproj.io/hook: PreSync  # Ensures this runs before dependent resources
 rules:
   - apiGroups: [""]  # Core API group
     resources: ["pods", "services", "endpoints", "secrets", "configmaps", "persistentvolumeclaims"]

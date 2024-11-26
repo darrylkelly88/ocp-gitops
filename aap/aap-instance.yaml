@@ -8,9 +8,6 @@ metadata:
     app.kubernetes.io/name: aap
     app.kubernetes.io/operator-version: '2.5'
     app.kubernetes.io/part-of: aap
-  annotations:
-    argocd.argoproj.io/hook: Sync
-    argocd.argoproj.io/sync-wave: "1"  # Apply this after the operator (wave 0)
 spec:
   api:
     log_level: INFO

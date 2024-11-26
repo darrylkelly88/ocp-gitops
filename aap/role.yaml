@@ -1,0 +1,24 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: argocd-manager
+  namespace: aap
+rules:
+  - apiGroups: [""]  # Core API group
+    resources: ["pods", "services", "endpoints", "secrets", "configmaps", "persistentvolumeclaims"]
+    verbs: ["get", "list", "watch", "create", "update", "delete", "patch"]
+  - apiGroups: ["apps"]  # Apps API group for deployments, statefulsets, etc.
+    resources: ["deployments", "replicasets", "statefulsets"]
+    verbs: ["get", "list", "watch", "create", "update", "delete", "patch"]
+  - apiGroups: ["batch"]  # Batch API group for jobs and cronjobs
+    resources: ["jobs", "cronjobs"]
+    verbs: ["get", "list", "watch", "create", "update", "delete", "patch"]
+  - apiGroups: ["aap.ansible.com"]  # Ansible Automation Platform CRDs
+    resources: ["*"]  # Manage all resources in the aap.ansible.com API group
+    verbs: ["get", "list", "watch", "create", "update", "delete", "patch"]
+  - apiGroups: ["networking.k8s.io"]  # Networking API group for Ingress resources
+    resources: ["ingresses"]
+    verbs: ["get", "list", "watch", "create", "update", "delete", "patch"]
+  - apiGroups: ["rbac.authorization.k8s.io"]  # RBAC resources
+    resources: ["roles", "rolebindings"]
+    verbs: ["get", "list", "watch", "create", "update", "delete", "patch"]

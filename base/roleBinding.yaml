@@ -3,6 +3,8 @@ kind: RoleBinding
 metadata:
   name: argocd-secret-manager-binding
   namespace: openshift-config
+  annotations:
+    argocd.argoproj.io/hook: PreSync
 subjects:
   - kind: ServiceAccount
     name: openshift-gitops-argocd-application-controller

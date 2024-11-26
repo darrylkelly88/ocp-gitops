@@ -1,0 +1,24 @@
+apiVersion: aap.ansible.com/v1alpha1
+kind: AnsibleAutomationPlatform
+metadata:
+  name: aap
+  namespace: aap
+  labels:
+    app.kubernetes.io/managed-by: aap-operator
+    app.kubernetes.io/name: aap
+    app.kubernetes.io/operator-version: '2.5'
+    app.kubernetes.io/part-of: aap
+  annotations:
+    argocd.argoproj.io/hook: Sync
+    argocd.argoproj.io/sync-wave: "1"  # Apply this after the operator (wave 0)
+spec:
+  api:
+    log_level: INFO
+    replicas: 1
+  database:
+    postgres_data_volume_init: false
+  ingress_type: Route
+  no_log: true
+  redis_mode: standalone
+  route_tls_termination_mechanism: Edge
+  service_type: NodePort

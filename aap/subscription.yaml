@@ -5,6 +5,9 @@ metadata:
   namespace: aap
   labels:
     operators.coreos.com/ansible-automation-platform-operator.aap: ''
+  annotations:
+    argocd.argoproj.io/hook: PreSync  # Ensures this runs before dependent resources
+    argocd.argoproj.io/sync-wave: "0"  # Optional, explicit wave for clarity
 spec:
   channel: stable-2.5
   installPlanApproval: Automatic
